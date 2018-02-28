@@ -1,0 +1,19 @@
+{
+    "dev": {
+        "app_function": "craigslist.app", 
+        "project_name": "craigslist_apartments",
+        "s3_bucket": "zappa-twrwecdhc",
+        "lambda_handler": "craigslist.lambda_handler",
+        "use_precompiled_packages": true,
+        "keep_warm": false,
+        "events": [{
+            "function": "craigslist.apartments",
+            "expression": "rate(1 hour)"
+        }],
+        "environment_variables": {
+            "to_emails": "postelrich@gmail.com,amy.postelnik@gmail.com",
+            "past_hours": "1",
+            "craigslist_url": "https://newyork.craigslist.org/search/que/abo?sort=date&availibilityMode=0&query=astoria&format=rss&max_price=2800"
+        }
+    }
+}
